@@ -65,3 +65,32 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - json (enabled by default - don't turn it off)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+
+- Installation
+1. After downloading the zip file, extract the source code on your htdocs folder
+2. on the termial/command prompt run the command to install dependencies.
+- composer install
+3. create a blank database (database name is user defined)
+4. create a .env file on the root directory of your project with the following content
+
+
+CI_ENVIRONMENT = development
+app.baseURL = 'http://localhost/ciproject_ticket;
+
+database.default.hostname = localhost
+database.default.database = databasename
+database.default.username = mysqluser
+database.default.password = mysqlpassword
+database.default.DBDriver = MySQLi
+database.default.DBPrefix =
+database.default.port = 3306
+
+(please provide the correct credentials and database name on the database configuration)
+
+5. run database migration with the following command:
+ - php spark shield:setup
+ - php spark migrate
+6. Register a user
+7. Modify the newly registered user's role in the auth_group_user table into an 'admin' role
+8. Modify user details in user management page
+9. Add Offices in office management page
